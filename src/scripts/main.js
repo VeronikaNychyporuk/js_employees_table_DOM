@@ -3,10 +3,10 @@ import('./sortTable.js');
 import('./form.js');
 
 const tbodyElement = document.querySelector('tbody');
-const rowsList = document.querySelectorAll('tr');
 
 tbodyElement.addEventListener('click', (e) => {
   const row = e.target.closest('tr');
+  const rowsList = document.querySelectorAll('tr');
 
   if (!row) {
     return;

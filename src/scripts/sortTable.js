@@ -1,6 +1,7 @@
 'use strict';
 
 const tableHead = document.querySelector('thead');
+let lastHeader;
 
 [...tableHead.querySelectorAll('th')].forEach((element) => {
   element.setAttribute('data-type', 'string');
@@ -23,6 +24,10 @@ function sortTable(header) {
   const tbodyElements = document.querySelector('tbody');
   const tableRows = [...tbodyElements.rows];
 
+  if (!lastHeader || header !== lastHeader) {
+    header.dataset.orderType = 'ASC';
+  }
+
   tableRows.sort((row1, row2) => sortRows(row1, row2, header));
 
   tableRows.forEach((element) => {
@@ -31,6 +36,7 @@ function sortTable(header) {
 
   header.dataset.orderType =
     header.dataset.orderType === 'ASC' ? 'DESC' : 'ASC';
+  lastHeader = header;
 }
 
 function sortRows(row1, row2, header) {
