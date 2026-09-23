@@ -25,12 +25,12 @@ function sortTable(header) {
 
   tableRows.sort((row1, row2) => sortRows(row1, row2, header));
 
-  header.dataset.orderType =
-    header.dataset.orderType === 'ASC' ? 'DESC' : 'ASC';
-
   tableRows.forEach((element) => {
     tbodyElements.append(element);
   });
+
+  header.dataset.orderType =
+    header.dataset.orderType === 'ASC' ? 'DESC' : 'ASC';
 }
 
 function sortRows(row1, row2, header) {

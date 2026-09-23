@@ -23,6 +23,7 @@ function createSelect(nameAttibute, textContent, options) {
   label.textContent = textContent;
   select.setAttribute('name', nameAttibute);
   select.setAttribute('data-qa', nameAttibute);
+  select.setAttribute('required', 'required');
 
   for (const optionValue of options) {
     const option = document.createElement('option');
